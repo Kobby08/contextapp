@@ -1,8 +1,10 @@
 import { Component, createContext } from "react";
 
+// create a context with the createContext() function
 export const ThemeContext = createContext();
 
 class ThemeContextProvider extends Component {
+  // set shared states
   state = {
     isLightTheme: true,
     light: { syntax: "#555", ui: "#ddd", bg: "#eee" },
@@ -10,6 +12,8 @@ class ThemeContextProvider extends Component {
   };
   render() {
     return (
+      // define the provider from the created context
+      // wrap the provider around the compents that would be using the shared states
       <ThemeContext.Provider value={{ ...this.state }}>
         {this.props.children}
       </ThemeContext.Provider>
